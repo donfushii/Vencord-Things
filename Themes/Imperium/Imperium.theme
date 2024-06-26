@@ -35,7 +35,7 @@
     --background-secondary: #17161b;
     --background-secondary-alt: #17161b;
     --background-tertiary: #101014;
-    --background-accent: #4f545c;
+    --background-accent: #17161b;
     --background-floating: #17161b;
     --modal-background: #101014;
     --channeltextarea-background: #17161b;
