@@ -19,6 +19,7 @@
 
 :root,
 .theme-dark {
+    --autocomplete-bg: #17161b;
     --text-normal: #dcddde;
     --text-muted: #4a4a52;
     --text-link: #6e6af6;
