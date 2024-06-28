@@ -59,6 +59,9 @@
     --font: "Lato";
     --code-font: "Source Code Pro";
     --boost-bar: none;
+
+    --modal-footer-background: #101014:
+    --primary-630-hsl: 220 calc(var(--saturation-factor, 1)) 18%
 }
 
 /* Made By Fushii */
