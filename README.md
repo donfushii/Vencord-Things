@@ -15,11 +15,30 @@
 <br/>
 
 ## • IMPORTANT
-1. My discord has frozen and won't open... This is because your discord has been updated and patched Vencord.
-- To fix it open `VencordInstaller.exe` or `VencordInstallerCli.exe` and select the "Repair Vencord" option. 
+
+**_1. Discord themes or plugins doesn't work._**
+> If you have installed the theme and it is not working this may be caused by our themes and plugins being `updated` or you may also have your discord `patched`.
+
+**_2. My discord has frozen and won't open... This is because your discord has been updated and patched Vencord._**
+> To fix it open `VencordInstaller.exe` or `VencordInstallerCli.exe` and select the "Repair Vencord" option.
 
 
 ## • FAQ
 
-**Q:  Discord themes doesn't work.**
-**A:** If you have installed the theme and it is not working this may be caused by our themes being `updated` or you may also have your discord `patched`.
+**Q: I want to `Ctrl + Shift + I` but it doesn't work.**
+
+A: Press <kbd>Win</kbd> + <kbd>R</kbd>, Type `%appdata%\discord`... Look for the `settings.json` file and open it in notepad.
+At the top of the file, under the open curly brace you need to add `"DANGEROUS_ENABLE_DEVTOOLS_ONLY_ENABLE_IF_YOU_KNOW_WHAT_YOURE_DOING": true,`
+
+So you file should be
+
+```js
+{
+  "DANGEROUS_ENABLE_DEVTOOLS_ONLY_ENABLE_IF_YOU_KNOW_WHAT_YOURE_DOING": true,
+  "IS_MAXIMIZED": false,
+  "IS_MINIMIZED": false,
+}
+```
+
+After that, save the file, open your task manager... <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Escape</kbd> and close Discord.
+Open Discord again and you should now be able to press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>.
