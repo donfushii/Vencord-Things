@@ -66,4 +66,16 @@
     --primary-630-hsl: 220 calc(var(--saturation-factor, 1) * ) 18%;
 }
 
+.title-1x_3BX {
+    visibility: hidden;
+}
+
+.title-1x_3BX::after {
+    content: "Imperium";
+    visibility: visible;
+    display: block;
+    font-size: 16px;
+    color: white;
+}
+
 /* Made By Fushii */
