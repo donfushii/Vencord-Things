@@ -1,14 +1,14 @@
 /**
  * @name Kittens
- * @author donfushii
  * @version 1.0.9
+ * @author donfushii
+ * @authorId 1226985025224970261
  * @description A Cute-Pink Discord theme!
- * @source https://github.com/Synqat/vencord-theme
- * @website https://vencord.dev
- * @invite vencord
+ * @website https://github.com/donfushii
 */
 
-@import "https://raw.githubusercontent.com/Synqat/vencord-theme/main/versions/latest.css";
+/* Imports */
+@import "https://raw.githubusercontent.com/donfushii/Vencord-Things/main/Themes/Kittens/Clients/Kittens.css";
 
 :root {
   --synqats-gb-bg-0-dark: #1e2021;
