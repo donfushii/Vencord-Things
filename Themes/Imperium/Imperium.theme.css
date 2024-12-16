@@ -66,16 +66,33 @@
     --primary-630-hsl: 220 calc(var(--saturation-factor, 1) * ) 18%;
 }
 
-.title-1x_3BX {
-    visibility: hidden;
+.typeWindows_a934d8 {
+    position: relative;
 }
 
-.title-1x_3BX::after {
+.wordmarkWindows_a934d8 {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.wordmarkWindows_a934d8 svg {
+    display: none;
+}
+
+.wordmarkWindows_a934d8::after {
     content: "Imperium";
+    font-size: 14px;
+    color: var(--text-muted);
+    font-family: 'Anton', sans-serif;
+    font-weight: 500;
     visibility: visible;
-    display: block;
-    font-size: 16px;
-    color: white;
+    position: absolute;
+    left: 11px;
+    top: 120%;
+    letter-spacing: 0.1px;
+    transform: translateY(-50%) scaleY(0.7);
+    pointer-events: none;
 }
 
 /* Made By Fushii */
