@@ -1,0 +1,141 @@
+local TweenService = game:GetService("TweenService")
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local UIStroke = Instance.new("UIStroke")
+local KeyBox = Instance.new("TextBox")
+local CopyKeyButton = Instance.new("TextButton")
+local CopyDiscordButton = Instance.new("TextButton")
+local ExecuteButton = Instance.new("TextButton")
+local TrashButton = Instance.new("TextButton")  -- Trash can as a TextButton
+
+-- GUI Parent
+ScreenGui.Parent = game.CoreGui
+Frame.Parent = ScreenGui
+Frame.Size = UDim2.new(0, 675, 0, 450)  -- Increased size by 1.5x
+Frame.Position = UDim2.new(0, -675, 0.5, -225)  -- Start off-screen to the left
+Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+
+UICorner.Parent = Frame
+UICorner.CornerRadius = UDim.new(0, 15)
+
+UIStroke.Parent = Frame
+UIStroke.Thickness = 4
+UIStroke.Color = Color3.fromRGB(0, 0, 0)
+
+-- KeyBox
+KeyBox.Parent = Frame
+KeyBox.Size = UDim2.new(0, 630, 0, 50)  -- Enlarged the KeyBox
+KeyBox.Position = UDim2.new(0.5, -315, 0.2, 0)
+KeyBox.PlaceholderText = "Enter Key"
+KeyBox.Text = ""
+KeyBox.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+KeyBox.TextColor3 = Color3.fromRGB(240, 240, 240)
+KeyBox.Font = Enum.Font.Gotham
+KeyBox.TextSize = 18
+
+-- Create Buttons function (now with larger button size)
+local function createButton(button, position, text, backgroundColor, textColor)
+    button.Size = UDim2.new(0, 630, 0, 45)  -- Increased button size to match GUI
+    button.Position = position
+    button.Text = text
+    button.BackgroundColor3 = backgroundColor
+    button.TextColor3 = textColor
+    button.Font = Enum.Font.Gotham
+    button.TextSize = 18
+
+    local buttonUICorner = Instance.new("UICorner")
+    buttonUICorner.Parent = button
+    buttonUICorner.CornerRadius = UDim.new(0, 15)  -- Smooth corners for buttons
+end
+
+CopyKeyButton.Parent = Frame
+createButton(CopyKeyButton, UDim2.new(0.5, -315, 0.45, 0), "Get Key", Color3.fromRGB(139, 0, 0), Color3.fromRGB(255, 255, 255))
+
+CopyDiscordButton.Parent = Frame
+createButton(CopyDiscordButton, UDim2.new(0.5, -315, 0.65, 0), "Join Discord", Color3.fromRGB(0, 0, 139), Color3.fromRGB(255, 255, 255))
+
+ExecuteButton.Parent = Frame
+createButton(ExecuteButton, UDim2.new(0.5, -315, 0.55, 0), "Submit Key", Color3.fromRGB(255, 140, 0), Color3.fromRGB(255, 255, 255))
+
+-- Trash Can Button (top-right) using UI elements
+TrashButton.Parent = Frame
+TrashButton.Size = UDim2.new(0, 60, 0, 60)  -- Trash can button size
+TrashButton.Position = UDim2.new(1, -70, 0, 10)
+TrashButton.BackgroundColor3 = Color3.fromRGB(169, 169, 169)  -- Base gray for the trash can
+TrashButton.Text = "🗑️"  -- Using the trash can emoji as text for the button
+TrashButton.TextSize = 30
+TrashButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+TrashButton.Font = Enum.Font.GothamBold
+
+-- Making the Trash can button clickable to destroy the GUI
+TrashButton.MouseButton1Click:Connect(function()
+    ScreenGui:Destroy()  -- Destroy the entire UI when clicked
+end)
+
+-- Copy Key Button
+CopyKeyButton.MouseButton1Click:Connect(function()
+    setclipboard("https://ads.luarmor.net/get_key?for=Desire_Hub-AQXeIDsbXKIn")  -- Copies the key URL to clipboard
+    print("Key URL copied to clipboard!")
+end)
+
+-- Copy Discord Button
+CopyDiscordButton.MouseButton1Click:Connect(function()
+    setclipboard("https://discord.gg/bp9Ys9NDBB")  -- Copies the Discord URL to clipboard
+    print("Discord URL copied to clipboard!")
+end)
+
+-- Execute Button
+ExecuteButton.MouseButton1Click:Connect(function()
+    -- Get the key from the KeyBox, remove spaces, and store it
+    local script_key = KeyBox.Text:gsub(" ", "") -- Remove spaces
+
+    if script_key ~= "" then
+        -- Add error handling for the loadstring and HttpGet
+        local success, response = pcall(function()
+            -- Fetch the loader script
+            return game:HttpGet("https://api.luarmor.net/files/v3/loaders/8698e0da16b06f8d494f6fb5cff5385c.lua")
+        end)
+
+        if success then
+            -- Check if response is valid (not nil or empty)
+            if response and response ~= "" then
+                print("HTTP response received successfully:")
+                print(response) -- Print the response to the console for debugging
+
+                -- Prepend the script key assignment to the response
+                local finalScript = "script_key = \"" .. script_key .. "\";\n" .. response
+                
+                -- Execute the script with the key inserted
+                local execSuccess, execError = pcall(function()
+                    loadstring(finalScript)() -- Try to run the final script with the key included
+                end)
+
+                if execSuccess then
+                    -- Destroy UI after successful execution
+                    ScreenGui:Destroy()
+                else
+                    warn("Error executing the script: " .. execError)
+                end
+            else
+                warn("Failed to retrieve the script. Response is nil or empty.")
+            end
+        else
+            warn("Error fetching the script: " .. response)
+        end
+    else
+        warn("Key cannot be empty or contain spaces.")
+    end
+end)
+
+-- Smooth Transition for Frame
+local goalPosition = UDim2.new(0.5, -315, 0.5, -225)  -- Final Position (Center)
+local tweenInfo = TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+
+-- Create the tween to smoothly move the frame
+local tween = TweenService:Create(Frame, tweenInfo, {Position = goalPosition})
+
+-- Play the tween after the GUI is added to the screen
+tween:Play()
