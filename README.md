@@ -1,16 +1,16 @@
 <p align="center">
-	<a href="https://discord.gg/"><img src=".assets/icon.ico" alt="Imperium" height="90" /></a>
+	<a href="https://discord.gg/sH5Mh2XfPC"><img src=".assets/icon.ico" alt="Imperium" height="90" /></a>
 </p>
 
 <h4 align="center">MY VENCORD PLUGINS | THEMES</h4>
 <p align="center">
-	V1.2.6
+	V1.0.9
 </p>
 
 <p align="center">
   <a href="#-important">IMPORTANT</a> •
 	<a href="#-faq">FAQ</a> •
-	<a href="https://discord.gg/">Discord server</a>
+	<a href="https://discord.gg/sH5Mh2XfPC">Discord server</a>
 </p>
 <br/>
 
