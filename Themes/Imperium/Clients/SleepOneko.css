@@ -1,0 +1,32 @@
+/* Oneko Zone */
+[class^="channelTextArea_"]::before {
+	content: "";
+	width: 32px;
+	height: 32px;
+	bottom: calc(100% - 3px);
+	right: 10px;
+	position: absolute;
+	image-rendering: pixelated;
+	background-image: url("https://raw.githubusercontent.com/adryd325/oneko.js/14bab15a755d0e35cd4ae19c931d96d306f99f42/oneko.gif");
+	animation: sprite 4.5s steps(1) infinite, motion 45s infinite linear;
+	pointer-events: none;
+	top: unset;
+	left: unset;
+}
+
+/* Sprite Loader */
+@keyframes sprite {
+	0%    { background-position: -64px 0; }
+	22.22% { background-position: -64px 0; }
+
+	33.33% { background-position: -64px -32px; }
+	44.44% { background-position: -64px -32px; }
+
+	55.55% { background-position: -64px 0; }
+	66.66% { background-position: -64px 0; }
+
+	77.77% { background-position: -64px -32px; }
+	88.88% { background-position: -64px -32px; }
+
+	100%   { background-position: -64px 0; }
+}
