@@ -174,3 +174,57 @@
 .visual-refresh .theme-dark div[style="background-color: rgb(67, 162, 90);"] {
     background-color: #a6e3a1 !important
 }
+
+
+
+
+
+/* Imperium Developer Badge - by donfushii */
+.userPopout-2j1gM4:has([href*="866057144944033802"]) .header-2BwW8b::after,
+.userProfileModalOuter-2wdWjU:has([href*="866057144944033802"]) .headerTop-3C2Zn0::after {
+    content: '';
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    background-image: url("https://media.tenor.com/Xq0VTrVJ2AIAAAAi/imperium.gif");
+    background-size: cover;
+    border-radius: 50%;
+    margin-left: 6px;
+    vertical-align: middle;
+    cursor: pointer;
+    position: relative;
+}
+
+.userPopout-2j1gM4:has([href*="866057144944033802"]) .header-2BwW8b::after:hover::after,
+.userProfileModalOuter-2wdWjU:has([href*="866057144944033802"]) .headerTop-3C2Zn0::after:hover::after {
+    content: "Imperium Developer";
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #11111b;
+    color: #f5c2e7;
+    padding: 4px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    font-size: 11px;
+    z-index: 9999;
+}
+
+/* Clickable badge: open link in new tab */
+.userPopout-2j1gM4:has([href*="866057144944033802"]) .header-2BwW8b::after,
+.userProfileModalOuter-2wdWjU:has([href*="866057144944033802"]) .headerTop-3C2Zn0::after {
+    pointer-events: auto;
+}
+
+.userPopout-2j1gM4:has([href*="866057144944033802"]) .header-2BwW8b::after:active,
+.userProfileModalOuter-2wdWjU:has([href*="866057144944033802"]) .headerTop-3C2Zn0::after:active {
+    animation: openDiscord 0s 1 forwards;
+}
+
+/* JS-like trick to simulate click action */
+@keyframes openDiscord {
+    0% {
+        content: url("javascript:window.open('https://discord.gg/sH5Mh2XfPC','_blank')");
+    }
+}
