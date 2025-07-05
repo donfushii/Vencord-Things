@@ -2,15 +2,43 @@
 .visual-refresh.theme-dark span[class*=botTag_],
 .visual-refresh.theme-dark div[class^=item_][class*=addFriend_],
 
+.visual-refresh.theme-dark label[class^=checkboxWrapper_],
+
 .visual-refresh.theme-dark div[class^=listItem_] div[class^=wrapper_] [class*=selected_],
 .visual-refresh.theme-dark button[class^=container_]>div[class^=icon_]>svg,
 
 .visual-refresh.theme-dark button[class*=button_][class*=lookFilled_][class*=colorRed_],
 .visual-refresh.theme-dark button[class*=button_][class*=lookFilled_][class*=colorGreen_],
 
+.visual-refresh .theme-dark div[class^=premiumTab_][class*=selected_],
+
 .visual-refresh .theme-dark .interactive:hover {
     --white: #11111b;
     --white-500: #11111b
+}
+
+.visual-refresh.theme-dark svg[class^=radioIndicator_] [class*=refreshIcon_],
+.visual-refresh .theme-dark svg[class^=radioIndicator_] [class*=refreshIcon_] {
+    fill: #11111b
+}
+
+.visual-refresh.theme-dark div[class^=bannerContainer_] [style*="color: white"],
+.visual-refresh.theme-dark div[class^=friendRequestContainer_]>button[class*=colorGreen_] [style*="color: white"],
+.visual-refresh .theme-dark div[class^=bannerContainer_] [style*="color: white"],
+.visual-refresh .theme-dark div[class^=friendRequestContainer_]>button[class*=colorGreen_] [style*="color: white"] {
+    color: #11111b !important
+}
+
+.visual-refresh.theme-dark div[data-text-variant="text-sm/normal"][style*="color: white"] {
+    color: #11111b !important;
+}
+
+.visual-refresh.theme-dark div[data-text-variant="text-md/medium"][style*="color: white"] {
+    color: #11111b !important;
+}
+
+.visual-refresh.theme-dark div[data-text-variant="text-sm/normal"].text-sm\/normal_cf4812 {
+    color: white !important;
 }
 
 /* Dark Theme */
@@ -87,6 +115,8 @@
     --blurple-50: #f5c2e7;
     --text-brand: #f5c2e7;
     --opacity-blurple-16: rgba(245, 194, 231, 0.16);
+
+    --guild-boosting-pink: #f5c2e7;
     
     --mention-foreground: #f5c2e7;
     --mention-background: rgba(245, 194, 231, 0.3);
@@ -133,6 +163,18 @@
     --button-secondary-background-hover: var(--brand-530)
 }
 
+.visual-refresh.theme-dark .container__87bf1.checked__87bf1 {
+    background-color: var(--brand-500) !important;
+}
+
+.visual-refresh.theme-dark .container__87bf1.checked__87bf1 rect {
+    fill: #11111b !important;
+}
+
+.visual-refresh.theme-dark .container__87bf1.checked__87bf1 svg path {
+    fill: var(--brand-500) !important;
+}
+
 /* Status Circles */
 .visual-refresh.theme-dark ::selection,
 .visual-refresh .theme-dark ::selection {
@@ -175,7 +217,15 @@
     background-color: #a6e3a1 !important
 }
 
+/* Get Nitro Button */
+.visual-refresh.theme-dark .subButton__70f7f {
+    background-color: #4e5058 !important;
+    color: #fff !important;
+    border-radius: 8px;
+    box-shadow: none !important;
+    transition: background-color 0.2s ease;
+}
 
-
-
-
+.visual-refresh.theme-dark .subButton__70f7f:hover {
+    background-color: #b377f1 !important;
+}
